@@ -2,18 +2,58 @@ Jour 1 (20/11/23) :
 Dans un premier temps, nous avons besoin de diviser notre programme en plusieurs fonctions.
 Nous pensons partir sur ces fonctions : 
 
-Serpent : 
--
+Serpent :
+    -10 segements au début -> +2 à chaques pommes consommées
+    -déplacement
+    -colisions :
+        -si on touche la couleur/emplacement de la bordure, la partie s'arrête.
+   -si on touche la couleur/emplacement du serpent, la partie s'arrête.
+Menu principal :
+    -option / paramètre 
+    -changer la couleur du serpent.
+    - activer/désactiver les/la variante(s)
+    -tableau des scores de la session 
+    -bouton jouer / quitter
 
-Menu principal
+Partie :
+    -Timer
+    -pause :
+        -touche ESPACE -> mettre/enlever pause
+        -interface spécial :
+            -bouton pour voir la grille de jeu
+            -mettre les commande sur une partie de l'écran de pause 
+            -code de triche / commande de bases. 
+    -quitter:
+        -touche ESC
+    -score :
+        -score de la partie ->  5x nbr de pommes consommées
+        -tableau des score de la session
+    -interface de fin de partie :
+        -garder l'écran de jeu assombri en arrière plan
+        -afficher le score
+        -option rejouer / menu principal
 
-
-
-
-
-
-
-
-
+Grille :
+    -40 lignes / 60 colonnes 
+    -5 pastilles (pommes) => aléatoirement placé
+    -pomme :
+        -
+    -obstacle :
+        - (variante)
+        - corps du serpent :
+            - si on touche la couleur/emplacement du serpent, la partie s'arrête
+    -bordure :
+        -si on touche la couleur/emplacement de la bordure, la partie s'arrête
+        
+        
+        
+Bonus : 
+    si possible :
+        si c'est vraiment possible :
+            si on a les ressources nécessaire :
+                mais vraiment :
+                    sons :
+                        -bruitage lorsque l'on récupère une pomme
+                        -Musique rétro
 
 https://annuel2.framapad.org/p/sae-a4h0?lang=fr
