@@ -13,4 +13,4 @@ Cette version du jeu [Snake](https://fr.wikipedia.org/wiki/Serpentes) a été r�
  -   Programme réalisé par Moncef STITI (@stiti) et Marco ORFAO (@orfao)
  
  ## Remerciements
- -   Lyanis Saoudi (@saoudi) pour son explication sur la réalisation d'un readme
+ -   Lyanis Saoudi (@saoudi) pour son explication sur la réalisation d'un readme.md
