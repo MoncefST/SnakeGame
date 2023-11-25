@@ -22,6 +22,7 @@ void afficherMenuPrincipal(){
 
 
 void afficherMenuModesDeJeu(){
+
     /*Affiche l'image de fond des modes de jeu*/
     ChargerImageFond("../img/modes_de_jeu.png");
 
@@ -48,8 +49,10 @@ void afficherMenuModesDeJeu(){
     RemplirRectangle(919.7, 639.9, 241.6, 103);
     ChoisirCouleurDessin(CouleurParNom("black"));
     EcrireTexte(979.7, 700, "Difficile", 2);
+}
 
-
+void afficherMenuCheatCode(){
+    ChargerImageFond("menu_cheat_code.png")
 }
 
 int attendreChoixModesDeJeu(){
