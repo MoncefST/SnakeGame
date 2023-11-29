@@ -52,7 +52,7 @@ void afficherMenuModesDeJeu(){
 }
 
 void afficherMenuCheatCode(){
-    ChargerImageFond("menu_cheat_code.png")
+    ChargerImageFond("menu_cheat_code.png");
 }
 
 int attendreChoixModesDeJeu(){
