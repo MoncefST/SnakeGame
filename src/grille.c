@@ -9,6 +9,17 @@ int* creer_grille(void){
 }
 
 void creer_grille_graph(){
+<<<<<<< HEAD
+    int x_grille=0,y_grille=0,x,y;
+    ChoisirCouleurDessin(CouleurParComposante(0,0,0));
+    DessinerRectangle(x_grille,y_grille,1200,1000);
+    DessinerRectangle(x_grille,y_grille,900,600);
+    for(x=x_grille;x<1100;x=x+15){
+        DessinerSegment(x,y_grille,x,800);
+    }
+    for(y=y_grille;y<800;y=y+15){
+        DessinerSegment(x_grille,y,1100,y);
+=======
     int x=200,y=200;
     ChoisirCouleurDessin(CouleurParComposante(0,0,0));
     DessinerRectangle(x,y,1200,1000);
@@ -20,6 +31,7 @@ void creer_grille_graph(){
     y=200;
     for(y=200;y<800;y=y+15){
         DessinerSegment(x,y,1100,y);
+>>>>>>> 03cdfc71722afd1d8631e3ed432af6d031cd9b7e
     }
 
 }
