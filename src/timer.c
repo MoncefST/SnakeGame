@@ -4,16 +4,14 @@
 
 void creer_timer(void){
     int sec = 0,mil_sec=0,min=0;
-    unsigned long temps = 0;
-    printf("temps : %lu\n",temps);
-    while(min<=2){
-        printf("[%d:%d,%d]\n",min,sec,mil_sec);
-        temps=Microsecondes();
-        printf("temps : %lu\n",temps);
-        sec=(temps/1000000)%60;
-        mil_sec=(temps/1000)%101;
+    unsigned long temps = 0,t1=0;
+    t1=Microsecondes();
+    while(sec<=12){
+        printf("[%0.2d:%0.2d]\n",min,sec);
+        temps=Microsecondes()-t1;
         min=(temps/60000000)%60;
-        printf("[%d:%d,%d]\n",min,sec,mil_sec);
+        temps=temps%60000000;
+        sec=(temps/1000000)%60;
     }
 }
 
