@@ -10,16 +10,16 @@ typedef struct {
     int x, y;
 } Segment;
 
-int creationSnake() {
+int main() {
     int touche,i,j,longueur,direction_x,direction_y;
     /*A SUPPRIMER : (uniquement pour tester le serpent)*/
     InitialiserGraphique();
     CreerFenetre(0, 0, 1200, 1000);
-
+    ChoisirCouleurDessin(CouleurParComposante(170,215,82));
 
     Segment serpent[10];
     longueur = 10;
-    for (i = 0; i < longueur; ++i) {
+    for (i = 0; i < longueur; i++) {
         serpent[i].x = 5 + i;
         serpent[i].y = 5;
     }
@@ -28,8 +28,8 @@ int creationSnake() {
     direction_y = 0;
 
     while (1) {
-
-        for (i = longueur - 1; i > 0; --i) {
+        EffacerEcran(CouleurParComposante(170, 215, 82));
+        for (i = longueur - 1; i > 0; i--) {
             serpent[i] = serpent[i - 1];
         }
         serpent[0].x += direction_x;
@@ -65,5 +65,5 @@ int creationSnake() {
     }
 
     FermerGraphique();
-    return 0;
+    return EXIT_SUCCESS;
 }
