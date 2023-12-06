@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <graph.h>
-#include <unistd.h> /* en attendant de trouver une meilleur fonction pour le temps*/
-#include "../include/grille.h"
 #include "../include/serpent.h"
-
 #define TAILLE_CASE 20
 #define LARGEUR_GRILLE 60
 #define HAUTEUR_GRILLE 40
@@ -39,23 +36,23 @@ void gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y) 
     }
 }
 
-int tuerSerpent(Segment serpent[]) {
-    /*Vérifier si le serpent est sorti de la grille*/
+int tuerSerpent(Segment serpent[], int longueur) {
+    int i;
+    /*Vérifier si la tête du serpent est sortie de la grille après le déplacement*/
     if (serpent[0].x < 0 || serpent[0].x >= LARGEUR_GRILLE || serpent[0].y < 0 || serpent[0].y >= HAUTEUR_GRILLE) {
         return 1; /*il est mort*/
     }
-}
 
-int seMangerQueue(Segment serpent[], int longueur) {
-    int i;
-    /*Vérifie si la tête du serpent entre en collision avec son propre corps*/
+    /*Vérifier si la tête du serpent entre en collision avec son propre corps*/
     for (i = 1; i < longueur; ++i) {
         if (serpent[0].x == serpent[i].x && serpent[0].y == serpent[i].y) {
-            return 1; /*Le serpent s'est mangé sa propre queue*/
+            return 1; /*il est mort*/
         }
     }
-    return 0; /*Aucune collision avec la queue*/
+
+    return 0; /*le serpent est en vie*/
 }
+
 
 
 void mettreAJourSerpent(Segment serpent[], int *longueur, int *direction_x, int *direction_y) {
@@ -73,7 +70,7 @@ void mettreAJourSerpent(Segment serpent[], int *longueur, int *direction_x, int 
     serpent[0].x += *direction_x;
     serpent[0].y += *direction_y;
 
-    tuerSerpent(serpent); /*Appeler la fonction pour vérifier si le serpent est mort*/
+    tuerSerpent(serpent,*longueur); /*Appeler la fonction pour vérifier si le serpent est mort*/
 }
 
 void dessinerSerpent(Segment serpent[], int *longueur) {

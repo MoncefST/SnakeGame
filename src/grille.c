@@ -1,12 +1,14 @@
 #include <graph.h>
+#include "../include/grille.h"
 
-/* Dessine une grille de 60 colonnes sur 40 lignes */
-void dessinerGrille() {
-    ChargerImageFond("../img/grille.png");
+
+void dessinerGrille(void) {
+    /* Dessine une grille de 60 colonnes sur 40 lignes */
     int i, j;
-    int tailleCase = 20;
+    int tailleCase = 20; /* Taille d'une case */
     couleur couleur1 = CouleurParComposante(170, 215, 82); /* Vert clair */
     couleur couleur2 = CouleurParComposante(54, 103, 0);    /* Vert foncé */
+    ChargerImageFond("../img/bas_grille.png"); /*Affiche l'image du bas =>  Score... Timer...*/
 
     for (i = 0; i < 40; i++) {
         for (j = 0; j < 60; j++) {
@@ -19,15 +21,3 @@ void dessinerGrille() {
         }
     }
 }
-/* UNIQUEMENT POUR TESTER LA GRILLE
-int main() {
-    InitialiserGraphique();
-    CreerFenetre(0, 0, 1200, 1000);
-
-    dessinerGrille();
-
-    Touche();
-    FermerGraphique();
-    return 0;
-}
-*/

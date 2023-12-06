@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<graph.h>
 #include "../include/menu.h"
+#include "../include/main.h"
 
 void afficherMenuPrincipal(){
     ChargerImageFond("../img/menu_principal.png");
@@ -30,30 +31,53 @@ void afficherMenuModesDeJeu(){
     ChoisirCouleurDessin(CouleurParComposante(168,116,67));
     RemplirRectangle(38.7, 639.9, 241.6, 103);
     ChoisirCouleurDessin(CouleurParNom("black"));
-    EcrireTexte(98.6, 700, "Classique", 2);
+    EcrireTexte(87.6, 700, "Classique", 2);
 
     /*Affiche le bouton n°2*/
     ChoisirCouleurDessin(CouleurParComposante(168,116,67));
     RemplirRectangle(332.6, 639.9, 241.6, 103);
     ChoisirCouleurDessin(CouleurParNom("black"));
-    EcrireTexte(387.4, 700, "Facile", 2);
+    EcrireTexte(360.4, 700, "MultiPommes", 2);
 
     /*Affiche le bouton n°3*/
     ChoisirCouleurDessin(CouleurParComposante(168,116,67));
     RemplirRectangle(626.2, 639.9, 241.6, 103);
     ChoisirCouleurDessin(CouleurParNom("black"));
-    EcrireTexte(686.1, 700, "Moyen", 2);
+    EcrireTexte(700.1, 700, "Rapide", 2);
 
     /*Affiche le bouton n°4*/
     ChoisirCouleurDessin(CouleurParComposante(168,116,67));
     RemplirRectangle(919.7, 639.9, 241.6, 103);
     ChoisirCouleurDessin(CouleurParNom("black"));
-    EcrireTexte(979.7, 700, "Difficile", 2);
+    EcrireTexte(960.7, 700, "Ultra rapide", 2);
 }
 
-void afficherMenuCheatCode(){
-    ChargerImageFond("menu_cheat_code.png");
+
+void afficherMenuGameOver(void) {
+    /* Affiche l'image game over */
+    ChargerImageFond("../img/game_over.png");
 }
+
+
+int attendreChoixGameOver() {
+    int x, y;
+
+    while (1) {
+        if (SourisCliquee()) {
+            SourisPosition();
+            x = _X;
+            y = _Y;
+
+            /* Vérifie si le bouton "Menu Principal" est cliqué */
+            if (x >= 379 && x <= 830.7 && y >= 530.3 && y <= 670.1) {
+                FermerGraphique();
+                main(); /* Renvoie vers le menu principal" */
+            }
+
+        }
+    }
+}
+
 
 int attendreChoixModesDeJeu(){
     int x, y;
@@ -82,10 +106,6 @@ int attendreChoixModesDeJeu(){
             /*Vérifie si le bouton n°4 est cliqué*/
             if (x >= 919.7 && x <= 1161.3 && y >= 639.9 && y <= 742.9) {
                 return 4;  /*Renvoie le choix bouton n°4*/
-            }
-            /*Vérifie si le bouton d'accès aux cheats codes est cliqué*/
-            if (x >= 1126.1 && x <= 1193.5 && y >= 792.8 && y <= 860.2) {
-                return 5;  
             }
 
         }
