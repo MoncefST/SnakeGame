@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <graph.h>
-#include <time.h>
+#include <time.h> /* à supprimer prochainement */
 #include "../include/grille.h"
 #include "../include/serpent.h"
 #include "../include/pomme.h"
@@ -9,9 +9,21 @@
 #include "../include/menu.h"
 
 
+void afficherScore(int score) {
+    char scoreStr[20];
+    /* Efface l'ancien score */
+    ChoisirCouleurDessin(CouleurParComposante(0, 0, 0));
+    RemplirRectangle(178, 946, 200, 40);
+    /* Convertit le score en chaîne de caractères */
+    snprintf(scoreStr, sizeof(scoreStr), "%d", score);
+    /* Affiche le nouveau score */
+    ChoisirCouleurDessin(CouleurParComposante(255, 255, 255));
+    EcrireTexte(178, 976, scoreStr, 2);
+}
 
 
 void lancer_jeu1(void) {
+    struct timespec delai = {0, 55000000}; /* A SUPPRIMER QUAND ON AURA LA FONCTION ATTENDRE*/
     Segment serpent[100];
     int longueur = 10;
     int direction_x = 1;
@@ -51,21 +63,14 @@ void lancer_jeu1(void) {
 
         dessinerSerpent(serpent, &longueur); 
 
-        /* Efface l'ancien score */
-        ChoisirCouleurDessin(CouleurParComposante(0, 0, 0));
-        RemplirRectangle(178, 946, 200, 40);
-        /* Convertit le score en chaîne de caractères */
-        snprintf(scoreStr, sizeof(scoreStr), "%d", score);
-        /* Affiche le nouveau score */
-        ChoisirCouleurDessin(CouleurParComposante(255, 255, 255));
-        EcrireTexte(178, 976, scoreStr, 2);
+        afficherScore(score);
 
-        struct timespec delai = {0, 55000000};  /*50 000 000 nanosecondes (0.05 seconde)*/
         nanosleep(&delai, NULL);
     }
 }
 
 void lancer_jeu2(void) {
+    struct timespec delai = {0, 55000000};  /*50 000 000 nanosecondes (0.05 seconde)*/
     int i;
     Segment serpent[100];
     int longueur = 10;
@@ -110,16 +115,8 @@ void lancer_jeu2(void) {
 
         dessinerSerpent(serpent, &longueur);
 
-        /* Efface l'ancien score */
-        ChoisirCouleurDessin(CouleurParComposante(0, 0, 0));
-        RemplirRectangle(178, 946, 200, 40);
-        /* Convertit le score en chaîne de caractères */
-        snprintf(scoreStr, sizeof(scoreStr), "%d", score);
-        /* Affiche le nouveau score */
-        ChoisirCouleurDessin(CouleurParComposante(255, 255, 255));
-        EcrireTexte(178, 976, scoreStr, 2);
+        afficherScore(score);
 
-        struct timespec delai = {0, 55000000};  /*50 000 000 nanosecondes (0.05 seconde)*/
         nanosleep(&delai, NULL);
     }
 }
@@ -166,21 +163,15 @@ void lancer_jeu3(void) {
 
         dessinerSerpent(serpent, &longueur); 
 
-        /* Efface l'ancien score */
-        ChoisirCouleurDessin(CouleurParComposante(0, 0, 0));
-        RemplirRectangle(178, 946, 200, 40);
-        /* Convertit le score en chaîne de caractères */
-        snprintf(scoreStr, sizeof(scoreStr), "%d", score);
-        /* Affiche le nouveau score */
-        ChoisirCouleurDessin(CouleurParComposante(255, 255, 255));
-        EcrireTexte(178, 976, scoreStr, 2);
+        afficherScore(score);
+
         /*Permet de gérer la vitesse du serpent*/
         nanosleep(&delai, NULL);
     }
 }
 
 void lancer_jeu4(void) {
-    struct timespec delai = {0, 30000000};  /*40 000 000 nanosecondes (0.04 seconde)*/
+    struct timespec delai = {0, 28000000};  /*40 000 000 nanosecondes (0.04 seconde)*/
     Segment serpent[100];
     int longueur = 10;
     int direction_x = 1;
@@ -220,15 +211,11 @@ void lancer_jeu4(void) {
 
         dessinerSerpent(serpent, &longueur); 
 
-        /* Efface l'ancien score */
-        ChoisirCouleurDessin(CouleurParComposante(0, 0, 0));
-        RemplirRectangle(178, 946, 200, 40);
-        /* Convertit le score en chaîne de caractères */
-        snprintf(scoreStr, sizeof(scoreStr), "%d", score);
-        /* Affiche le nouveau score */
-        ChoisirCouleurDessin(CouleurParComposante(255, 255, 255));
-        EcrireTexte(178, 976, scoreStr, 2);
+        afficherScore(score);
+
         /*Permet de gérer la vitesse du serpent*/
         nanosleep(&delai, NULL);
     }
 }
+
+
