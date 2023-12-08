@@ -7,7 +7,7 @@ void dessinerGrille(void) {
     int i, j;
     int tailleCase = 20; /* Taille d'une case */
     couleur couleur1 = CouleurParComposante(170, 215, 82); /* Vert clair */
-    couleur couleur2 = CouleurParComposante(54, 103, 0);    /* Vert foncé */
+    couleur couleur2 = CouleurParComposante(180, 220, 90);    /* Vert foncé */
     ChargerImageFond("../img/bas_grille.png"); /*Affiche l'image du bas =>  Score... Timer...*/
 
     for (i = 0; i < 40; i++) {

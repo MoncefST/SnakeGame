@@ -59,7 +59,7 @@ void mettreAJourSerpent(Segment serpent[], int *longueur, int *direction_x, int 
     int i;
     int ancienX = serpent[*longueur - 1].x;
     int ancienY = serpent[*longueur - 1].y;
-    couleur couleurFond = (ancienX + ancienY) % 2 == 0 ? CouleurParComposante(170, 215, 82) : CouleurParComposante(54, 103, 0);
+    couleur couleurFond = (ancienX + ancienY) % 2 == 0 ? CouleurParComposante(170, 215, 82) : CouleurParComposante(180, 220, 90);
 
     ChoisirCouleurDessin(couleurFond);
     RemplirRectangle(ancienX * TAILLE_CASE, ancienY * TAILLE_CASE, TAILLE_CASE, TAILLE_CASE);
