@@ -59,13 +59,13 @@ int afficher_minute(int min){
 }
 
 void creer_timer(void){
-    int sec = 0,min=0;
+    int sec = 0,min=0,x=1;
     unsigned long int temps = 0,seconde,pause=0;
     seconde=Microsecondes()+cycle;
     afficher_seconde(sec);
     afficher_minute(min);
     EcrireTexte(110,100,":",2);
-    while(1){
+    while(x=1){
 	    if(Microsecondes()>seconde){
             sec++;
             printf("%d\n",sec);
@@ -82,6 +82,9 @@ void creer_timer(void){
         if(ToucheEnAttente()==1){
                 if(Touche()==XK_space){
                     pause=attendre();
+                }
+                if(Touche()==XK_Escape){
+                    x=0;
                 }
         }
     }
