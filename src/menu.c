@@ -22,10 +22,10 @@ void afficherMenuModesDeJeu() {
     ChargerImageFond("../img/modes_de_jeu.png");
 
     /* Affiche les boutons des modes de jeu */
-    afficherBouton(38.7, 639.9, 280.3, 742.9, "Classique", CouleurParComposante(168, 116, 67), CouleurParNom("nom_de_la_couleur_bordure"), CouleurParNom("nom_de_la_couleur_texte"), 2);
-    afficherBouton(332.6, 639.9, 574.2, 742.9, "MultiPommes", CouleurParComposante(168, 116, 67), CouleurParNom("nom_de_la_couleur_bordure"), CouleurParNom("nom_de_la_couleur_texte"), 2);
-    afficherBouton(626.2, 639.9, 867.8, 742.9, "Rapide", CouleurParComposante(168, 116, 67), CouleurParNom("nom_de_la_couleur_bordure"), CouleurParNom("nom_de_la_couleur_texte"), 2);
-    afficherBouton(919.7, 639.9, 1161.3, 742.9, "Ultra rapide", CouleurParComposante(168, 116, 67), CouleurParNom("nom_de_la_couleur_bordure"), CouleurParNom("nom_de_la_couleur_texte"), 2);
+    afficherBouton(38.7, 639.9, 280.3, 742.9, "Classique", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
+    afficherBouton(332.6, 639.9, 574.2, 742.9, "MultiPommes", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
+    afficherBouton(626.2, 639.9, 867.8, 742.9, "Obstacles", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
+    afficherBouton(919.7, 639.9, 1161.3, 742.9, "Acceleration", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
 }
 
 
@@ -116,7 +116,8 @@ int attendreChoixMenu(){
 
 void afficherBouton(double x1, double y1, double x2, double y2, const char *texte, couleur arriere_plan, couleur bordure, couleur couleur_texte, int taille_texte) {
     /* Copie la chaîne constante dans une nouvelle chaîne non constante */
-    char *texte_modifiable = strdup(texte);
+    char *texte_modifiable = malloc(strlen((const char *)texte) + 1);
+    strcpy(texte_modifiable, (const char *)texte);
 
     /* Affiche le bouton avec la couleur d'arrière-plan spécifiée */
     ChoisirCouleurDessin(arriere_plan);

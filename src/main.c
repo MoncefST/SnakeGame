@@ -9,6 +9,7 @@ int main(void) {
     int choixModesDeJeu = 0;
     InitialiserGraphique();
     CreerFenetre(0, 0, 1200, 1000);
+    ChoisirTitreFenetre("Snake By Moncef & Marco");
 
 
     while (1) {
@@ -35,6 +36,5 @@ int main(void) {
             return EXIT_SUCCESS;
         }
     }
-    
     return EXIT_SUCCESS;
 }

@@ -3,16 +3,15 @@
 #include<graph.h>
 #define cycle 1000000L
 
-unsigned long int attendre(void){
-    int x=1;
+unsigned long int attendre(void) {
     unsigned long int temps_pause;
-    unsigned long int t1=Microsecondes();
-    while(x==1){
-        if(Touche()==XK_space){
-            x=0;
+    unsigned long int t1 = Microsecondes();
+    while (1) {
+        if (ToucheEnAttente() && Touche() == XK_space) {
+            break;
         }
     }
-    temps_pause=Microsecondes()-t1;
+    temps_pause = Microsecondes() - t1;
     return temps_pause;
 }
 
@@ -68,7 +67,6 @@ void creer_timer(void){
     while(x=1){
 	    if(Microsecondes()>seconde){
             sec++;
-            printf("%d\n",sec);
             afficher_seconde(sec);
             seconde=Microsecondes()+cycle;
             if(sec==60){
@@ -90,6 +88,7 @@ void creer_timer(void){
     }
 }
 
+/*
 int main(void){
     InitialiserGraphique();
     CreerFenetre(1000,0,1000,1000);
@@ -97,3 +96,4 @@ int main(void){
     FermerGraphique();
     return EXIT_SUCCESS;
 }
+*/
