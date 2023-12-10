@@ -49,7 +49,7 @@ int attendreChoixGameOver() {
 
             /* Vérifie si le bouton "Menu Principal" est cliqué */
             if (x >= 379 && x <= 830.7 && y >= 530.3 && y <= 670.1) {
-                FermerGraphique();
+                EffacerEcran(CouleurParNom("white"));
                 main(); /* Renvoie vers le menu principal" */
             }
 

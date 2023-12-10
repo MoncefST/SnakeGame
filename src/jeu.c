@@ -24,6 +24,7 @@ void afficherScore(int score) {
 
 
 void lancer_jeu1(void) {
+    int fin = 1;
     Segment serpent[100];
     int longueur = 10;
     int direction_x = 1;
@@ -31,20 +32,18 @@ void lancer_jeu1(void) {
     int score = 0;
     char scoreStr[20];
     Pomme pomme;
-    
-    FermerGraphique();
-    InitialiserGraphique();
-    CreerFenetre(0, 0, 1200, 1000);
-    ChoisirTitreFenetre("Snake By Moncef & Marco");
+    int min, sec;
 
+
+    initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
 
     pomme = creerPomme();
     dessinerPomme(pomme);
-    
 
-    while (1) {
+    while (fin == 1) {
+        update_timer(&min, &sec);
         gestionDeplacements(serpent, &direction_x, &direction_y);
         mettreAJourSerpent(serpent, &longueur, &direction_x, &direction_y);
 
@@ -58,20 +57,21 @@ void lancer_jeu1(void) {
         if (tuerSerpent(serpent, longueur)) {
             int choixGameOver;
             afficherMenuGameOver();
+            afficher_seconde(sec);
+            afficher_minute(min);
             afficherScore(score);
             /* Attend le choix du joueur après le game over */
             choixGameOver = attendreChoixGameOver();
         }
 
-        
-
-        dessinerSerpent(serpent, &longueur); 
-
+        dessinerSerpent(serpent, &longueur);
         afficherScore(score);
-        
+        update_timer(&min, &sec);
+
         attendreSerpent(150000);
     }
 }
+
 
 void lancer_jeu2(void) {
     int i;
@@ -83,12 +83,10 @@ void lancer_jeu2(void) {
     int score = 0;
     char scoreStr[20];
     Pomme pommes[5];
+    int min, sec;
 
-    FermerGraphique();
-    InitialiserGraphique();
-    CreerFenetre(0, 0, 1200, 1000);
-    ChoisirTitreFenetre("Snake By Moncef & Marco");
 
+    initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
 
@@ -113,6 +111,9 @@ void lancer_jeu2(void) {
         if (tuerSerpent(serpent, longueur)) {
             int choixGameOver;
             afficherMenuGameOver();
+            afficher_seconde(sec);
+            afficher_minute(min);
+            afficherScore(score);
 
             /* Attend le choix du joueur après le game over */
             choixGameOver = attendreChoixGameOver();
@@ -121,8 +122,9 @@ void lancer_jeu2(void) {
         dessinerSerpent(serpent, &longueur);
 
         afficherScore(score);
+        update_timer(&min, &sec);
 
-        attendreSerpent(vitesse);
+        attendreSerpent(vitesse); /*Gère la vitesse*/
     }
 }
 
@@ -136,13 +138,10 @@ void lancer_jeu4(void) {
     char scoreStr[20];
     Pomme pomme;
     Segment serpent[100];
+    int min, sec;
 
-    FermerGraphique();
-    InitialiserGraphique();
-    CreerFenetre(0, 0, 1200, 1000);
-    ChoisirTitreFenetre("Snake By Moncef & Marco");
 
-    
+    initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
 
@@ -173,6 +172,7 @@ void lancer_jeu4(void) {
 
         dessinerSerpent(serpent, &longueur);
         afficherScore(score);
+        update_timer(&min, &sec);
 
         attendreSerpent(vitesse);
     }
@@ -190,14 +190,9 @@ void lancer_jeu3(void) {
     int nombreObstacles = 10;
     Obstacle *obstacles = malloc(nombreObstacles * sizeof(Obstacle));
     Segment serpent[100];
+    int min, sec;
 
-
-
-    FermerGraphique();
-    InitialiserGraphique();
-    CreerFenetre(0, 0, 1200, 1000);
-    ChoisirTitreFenetre("Snake By Moncef & Marco");
-
+    initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
 
@@ -223,6 +218,8 @@ void lancer_jeu3(void) {
     if (tuerSerpent(serpent, longueur)) {
         int choixGameOver;
         afficherMenuGameOver();
+        afficher_seconde(sec);
+        afficher_minute(min);
         afficherScore(score);
         /* Attend le choix du joueur après le game over */
         choixGameOver = attendreChoixGameOver();
@@ -233,6 +230,9 @@ void lancer_jeu3(void) {
         if (estCollisionObstacle(obstacles[i], serpent, longueur)) {
             int choixGameOver;
             afficherMenuGameOver();
+            afficher_seconde(sec);
+            afficher_minute(min);
+            afficherScore(score);
 
             /* Attend le choix du joueur après le game over */
             choixGameOver = attendreChoixGameOver();
@@ -259,6 +259,8 @@ void lancer_jeu3(void) {
     }
 
     afficherScore(score);
+    update_timer(&min, &sec);
+
 
     /*Attendre en fonction de la vitesse actuelle*/
     attendreSerpent(vitesse);

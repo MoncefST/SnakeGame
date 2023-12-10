@@ -1,12 +1,10 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-
-unsigned long int attendre(void);
-unsigned long int creer_timer(void);
-int afficher_minute(int min);
+void initialiser_timer(int *min, int *sec);
 int afficher_seconde(int sec);
+int afficher_minute(int min);
+void update_timer(int *min, int *sec);
+void pause(void);
 
-
-
-#endif /*TIMER_H*/
+#endif /* TIMER_H */

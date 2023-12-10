@@ -10,8 +10,9 @@
 
 
 void dessinerObstacle(Obstacle obstacle) {
-    ChoisirCouleurDessin(CouleurParComposante(10, 10, 10));  /*choix de la couleur de l'opstacle */
-    RemplirRectangle(obstacle.x * TAILLE_CASE, obstacle.y * TAILLE_CASE, TAILLE_CASE, TAILLE_CASE);
+    int id_bombe;
+    id_bombe = ChargerSprite("../img/bombe.png");
+    AfficherSprite(id_bombe,obstacle.x * TAILLE_CASE, obstacle.y * TAILLE_CASE);
 }
 
 

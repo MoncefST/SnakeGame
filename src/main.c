@@ -20,15 +20,19 @@ int main(void) {
             afficherMenuModesDeJeu();
             choixModesDeJeu = attendreChoixModesDeJeu();
             if(choixModesDeJeu == 1){
+                EffacerEcran(CouleurParNom("white"));
                 lancer_jeu1();
             }
             if(choixModesDeJeu == 2){
+                EffacerEcran(CouleurParNom("white"));
                 lancer_jeu2();
             }
             if(choixModesDeJeu == 3){
+                EffacerEcran(CouleurParNom("white"));
                 lancer_jeu3();
             }
             if(choixModesDeJeu == 4){
+                EffacerEcran(CouleurParNom("white"));
                 lancer_jeu4();
             }
         } else if (choixMenuPrincipal == 2) {

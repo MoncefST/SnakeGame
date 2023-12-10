@@ -2,6 +2,7 @@
 #include <graph.h>
 #include "../include/serpent.h"
 #include "../include/main.h"
+#include "../include/timer.h"
 #define TAILLE_CASE 20
 #define LARGEUR_GRILLE 60
 #define HAUTEUR_GRILLE 40
@@ -39,7 +40,9 @@ void gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y) 
         } else if (touche == XK_Escape) {
             FermerGraphique();
             main();
-        } 
+        } else if (touche == XK_space) {
+            pause();
+        }
     }
 }
 
