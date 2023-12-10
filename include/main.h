@@ -2,5 +2,6 @@
 #define MAIN_H
 
 int main(void);
+int menus(void);
 
 #endif /*MAIN_H*/

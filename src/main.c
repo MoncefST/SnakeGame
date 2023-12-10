@@ -4,14 +4,12 @@
 #include "../include/jeu.h"
 #include "../include/menu.h"
 
-int main(void) {
+
+
+
+int menus(void) {
     int choixMenuPrincipal = 0;
     int choixModesDeJeu = 0;
-    InitialiserGraphique();
-    CreerFenetre(0, 0, 1200, 1000);
-    ChoisirTitreFenetre("Snake By Moncef & Marco");
-
-
     while (1) {
         if (choixMenuPrincipal == 0) {
             afficherMenuPrincipal();
@@ -40,5 +38,17 @@ int main(void) {
             return EXIT_SUCCESS;
         }
     }
+}
+
+
+int main(void){
+    int choixMenuPrincipal = 0;
+    int choixModesDeJeu = 0;
+    InitialiserGraphique();
+    CreerFenetre(0, 0, 1200, 1000);
+    ChoisirTitreFenetre("Snake By Moncef & Marco");
+
+    menus();
     return EXIT_SUCCESS;
+
 }
