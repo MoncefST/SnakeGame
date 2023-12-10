@@ -165,6 +165,9 @@ void lancer_jeu4(void) {
         if (tuerSerpent(serpent, longueur)) {
             int choixGameOver;
             afficherMenuGameOver();
+            afficherScore(score);
+            afficher_minute(min);
+            afficher_seconde(sec);
 
             /* Attend le choix du joueur après le game over */
             choixGameOver = attendreChoixGameOver();
