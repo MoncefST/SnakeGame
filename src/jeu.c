@@ -33,6 +33,7 @@ void lancer_jeu1(void) {
     Pomme pomme;
     int min, sec;
     int id_pomme;
+    int esc=0;
 
 
     initialiser_timer(&min, &sec);
@@ -45,7 +46,10 @@ void lancer_jeu1(void) {
 
     while (fin == 1) {
         update_timer(&min, &sec);
-        gestionDeplacements(serpent, &direction_x, &direction_y);
+        esc=gestionDeplacements(serpent, &direction_x, &direction_y);
+        if(esc==1){ /*verifie si on appuie sur échap */
+            return; /*quitte si on appuie sur échap*/
+        }
         mettreAJourSerpent(serpent, &longueur, &direction_x, &direction_y);
 
         if (serpent[0].x == pomme.x && serpent[0].y == pomme.y) {
@@ -87,6 +91,7 @@ void lancer_jeu2(void) {
     Pomme pommes[5];
     int min, sec;
     int id_pomme;
+    int esc;
 
 
     initialiser_timer(&min, &sec);
@@ -100,7 +105,10 @@ void lancer_jeu2(void) {
     }
 
     while (1) {
-        gestionDeplacements(serpent, &direction_x, &direction_y);
+        esc=gestionDeplacements(serpent, &direction_x, &direction_y);
+        if(esc==1){/*verifie si on appuie sur échap */
+            return; /*quitte si on appuie sur échap*/
+        }
         mettreAJourSerpent(serpent, &longueur, &direction_x, &direction_y);
 
         for (i = 0; i < 5; i++) {
@@ -145,6 +153,7 @@ void lancer_jeu4(void) {
     Segment serpent[100];
     int min, sec;
     int id_pomme;
+    int esc=0;
 
 
     initialiser_timer(&min, &sec);
@@ -156,7 +165,10 @@ void lancer_jeu4(void) {
     dessinerPomme(pomme,id_pomme);
 
     while (1) {
-        gestionDeplacements(serpent, &direction_x, &direction_y);
+        esc=gestionDeplacements(serpent, &direction_x, &direction_y);
+        if(esc==1){/*verifie si on appuie sur échap */
+            return;/*quitte si on appuie sur echap*/
+        }
         mettreAJourSerpent(serpent, &longueur, &direction_x, &direction_y);
 
         if (serpent[0].x == pomme.x && serpent[0].y == pomme.y) {
@@ -201,6 +213,7 @@ void lancer_jeu3(void) {
     Pomme pommes[25];
     int min, sec;
     int id_pomme;
+    int esc=0;
 
 
     initialiser_timer(&min, &sec);
@@ -213,7 +226,10 @@ void lancer_jeu3(void) {
     }
 
     while (1) {
-        gestionDeplacements(serpent, &direction_x, &direction_y);
+        esc=gestionDeplacements(serpent, &direction_x, &direction_y);
+        if(esc==1){
+            return;
+        }
         mettreAJourSerpent(serpent, &longueur, &direction_x, &direction_y);
 
         for (i = 0; i < 25; i++) {
@@ -244,9 +260,5 @@ void lancer_jeu3(void) {
         update_timer(&min, &sec);
 
         attendreSerpent(vitesse); /*Gère la vitesse*/
-
-        /*if (ToucheEnAttente() && Touche() == XK_Escape) {
-            return;
-        }*/
     }
 }

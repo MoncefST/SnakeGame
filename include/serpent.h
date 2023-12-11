@@ -6,7 +6,7 @@ typedef struct {
 } Segment;
 
 void initialiserSerpent(Segment serpent[], int *longueur);
-void gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y);
+int gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y);
 int tuerSerpent(Segment serpent[], int longueur);
 void mettreAJourSerpent(Segment serpent[], int *longueur, int *direction_x, int *direction_y);
 void dessinerSerpent(Segment serpent[], int *longueur);

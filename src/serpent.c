@@ -21,7 +21,7 @@ void initialiserSerpent(Segment serpent[], int *longueur) {
     *longueur = 10;
 }
 
-void gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y) {
+int gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y) {
     int touche;
     if (ToucheEnAttente()) {
         touche = Touche();
@@ -39,8 +39,11 @@ void gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y) 
             *direction_y = 0;
         } else if (touche == XK_space) {
             pause();
-        }
+        } else if(touche == XK_Escape){
+                return 1;
+            }
     }
+    return 0;
 }
 
 int tuerSerpent(Segment serpent[], int longueur) {
