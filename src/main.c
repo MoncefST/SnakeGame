@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <graph.h>
+#include "../include/main.h"
 #include "../include/jeu.h"
 #include "../include/menu.h"
 
