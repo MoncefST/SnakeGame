@@ -24,9 +24,9 @@ void afficherScore(int score) {
 
 
 void lancer_jeu1(void) {
-    int fin = 1;
     Segment serpent[100];
     int longueur = 10;
+    unsigned long int vitesse = 100000;
     int direction_x = 1;
     int direction_y = 0;
     int score = 0;
@@ -42,7 +42,7 @@ void lancer_jeu1(void) {
     pomme = creerPomme();
     dessinerPomme(pomme);
 
-    while (fin == 1) {
+    while (1) {
         update_timer(&min, &sec);
         gestionDeplacements(serpent, &direction_x, &direction_y);
         mettreAJourSerpent(serpent, &longueur, &direction_x, &direction_y);
@@ -68,7 +68,7 @@ void lancer_jeu1(void) {
         afficherScore(score);
         update_timer(&min, &sec);
 
-        attendreSerpent(150000);
+        attendreSerpent(vitesse);
     }
 }
 
@@ -79,7 +79,7 @@ void lancer_jeu2(void) {
     int longueur = 10;
     int direction_x = 1;
     int direction_y = 0;
-    unsigned long int vitesse = 200000;  /*vitesse de base*/
+    unsigned long int vitesse = 100000;  /*vitesse de base*/
     int score = 0;
     char scoreStr[20];
     Pomme pommes[5];
@@ -134,7 +134,7 @@ void lancer_jeu4(void) {
     int direction_x = 1;
     int direction_y = 0;
     int score = 0;
-    unsigned long int vitesse = 300000;  /*vitesse de base*/
+    unsigned long int vitesse = 100000;  /*vitesse de base*/
     char scoreStr[20];
     Pomme pomme;
     Segment serpent[100];
