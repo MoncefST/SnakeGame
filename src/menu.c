@@ -38,7 +38,7 @@ void afficherMenuGameOver(void) {
 }
 
 
-int attendreChoixGameOver() {
+void attendreChoixGameOver(void) {
     int x, y;
 
     while (1) {
@@ -49,8 +49,7 @@ int attendreChoixGameOver() {
 
             /* Vérifie si le bouton "Menu Principal" est cliqué */
             if (x >= 379 && x <= 830.7 && y >= 530.3 && y <= 670.1) {
-                EffacerEcran(CouleurParNom("white"));
-                menus(); /* Renvoie vers le menu principal" */
+                return;
             }
 
         }

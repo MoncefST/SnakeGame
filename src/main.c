@@ -8,7 +8,7 @@
 
 
 
-int menus(void) {
+void menus(void) {
     int choixMenuPrincipal = 0;
     int choixModesDeJeu = 0;
     while (1) {
@@ -36,9 +36,9 @@ int menus(void) {
             }
         } else if (choixMenuPrincipal == 2) {
             FermerGraphique();
-            return EXIT_SUCCESS;
         }
     }
+    return;
 }
 
 

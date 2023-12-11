@@ -24,9 +24,9 @@ void afficherScore(int score) {
 
 
 void lancer_jeu1(void) {
+    int fin = 1;
     Segment serpent[100];
     int longueur = 10;
-    unsigned long int vitesse = 100000;
     int direction_x = 1;
     int direction_y = 0;
     int score = 0;
@@ -42,7 +42,7 @@ void lancer_jeu1(void) {
     pomme = creerPomme();
     dessinerPomme(pomme);
 
-    while (1) {
+    while (fin == 1) {
         update_timer(&min, &sec);
         gestionDeplacements(serpent, &direction_x, &direction_y);
         mettreAJourSerpent(serpent, &longueur, &direction_x, &direction_y);
@@ -61,14 +61,15 @@ void lancer_jeu1(void) {
             afficher_minute(min);
             afficherScore(score);
             /* Attend le choix du joueur après le game over */
-            choixGameOver = attendreChoixGameOver();
+            attendreChoixGameOver();
+            return;
         }
 
         dessinerSerpent(serpent, &longueur);
         afficherScore(score);
         update_timer(&min, &sec);
 
-        attendreSerpent(vitesse);
+        attendreSerpent(150000);
     }
 }
 
@@ -79,7 +80,7 @@ void lancer_jeu2(void) {
     int longueur = 10;
     int direction_x = 1;
     int direction_y = 0;
-    unsigned long int vitesse = 100000;  /*vitesse de base*/
+    unsigned long int vitesse = 200000;  /*vitesse de base*/
     int score = 0;
     char scoreStr[20];
     Pomme pommes[5];
@@ -116,7 +117,8 @@ void lancer_jeu2(void) {
             afficherScore(score);
 
             /* Attend le choix du joueur après le game over */
-            choixGameOver = attendreChoixGameOver();
+            attendreChoixGameOver();
+            return;
         }
 
         dessinerSerpent(serpent, &longueur);
@@ -134,7 +136,7 @@ void lancer_jeu4(void) {
     int direction_x = 1;
     int direction_y = 0;
     int score = 0;
-    unsigned long int vitesse = 100000;  /*vitesse de base*/
+    unsigned long int vitesse = 300000;  /*vitesse de base*/
     char scoreStr[20];
     Pomme pomme;
     Segment serpent[100];
@@ -170,7 +172,8 @@ void lancer_jeu4(void) {
             afficher_seconde(sec);
 
             /* Attend le choix du joueur après le game over */
-            choixGameOver = attendreChoixGameOver();
+            attendreChoixGameOver();
+            return;
         }
 
         dessinerSerpent(serpent, &longueur);
@@ -225,35 +228,10 @@ void lancer_jeu3(void) {
         afficher_minute(min);
         afficherScore(score);
         /* Attend le choix du joueur après le game over */
-        choixGameOver = attendreChoixGameOver();
+        attendreChoixGameOver();
+        return;
     }
 
-    /*Vérifier la collision avec les obstacles*/
-    for (i = 0; i < nombreObstacles; i++) {
-        if (estCollisionObstacle(obstacles[i], serpent, longueur)) {
-            int choixGameOver;
-            afficherMenuGameOver();
-            afficher_seconde(sec);
-            afficher_minute(min);
-            afficherScore(score);
-
-            /* Attend le choix du joueur après le game over */
-            choixGameOver = attendreChoixGameOver();
-            if (choixGameOver == 1) {
-                /*Réinitialiser le jeu*/
-                longueur = 10;
-                score = 0;
-                vitesse = 28000000;
-                initialiserSerpent(serpent, &longueur);
-                dessinerGrille();
-                pomme = creerPomme();
-                dessinerPomme(pomme);
-                placerObstacle(obstacles, nombreObstacles, LARGEUR_GRILLE, HAUTEUR_GRILLE);
-            } else if (choixGameOver == 2) {
-                FermerGraphique();
-            }
-        }
-    }
 
     /*Dessiner le serpent et les obstacles*/
     dessinerSerpent(serpent, &longueur);

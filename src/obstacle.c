@@ -13,9 +13,8 @@ void dessinerObstacle(Obstacle obstacle) {
     int id_bombe;
     id_bombe = ChargerSprite("../img/bombe.png");
     AfficherSprite(id_bombe,obstacle.x * TAILLE_CASE, obstacle.y * TAILLE_CASE);
-}
-
-
+} 
+  
 int estCollisionObstacle(Obstacle obstacle, Segment serpent[], int longueur) {
     int i;
     for (i = 0; i < longueur; i++) {
