@@ -48,8 +48,6 @@ int main(void){
     InitialiserGraphique();
     CreerFenetre(0, 0, 1200, 1000);
     ChoisirTitreFenetre("Snake By Moncef & Marco");
-
     menus();
     return EXIT_SUCCESS;
-
 }

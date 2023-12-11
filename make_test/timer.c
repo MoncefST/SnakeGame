@@ -11,7 +11,7 @@ void initialiser_timer(int *min, int *sec) {
 }
 
 int afficher_seconde(int sec){
-    char timer[50];
+    char timer[4];
     int x = 230 ,y = 850;
     if(sec<=9){
         ChoisirCouleurDessin(CouleurParComposante(0, 0, 0));
@@ -31,7 +31,7 @@ int afficher_seconde(int sec){
 }
 
 int afficher_minute(int min){
-    char timer[50];
+    char timer[4];
     int x = 190 ,y = 850;
     if(min<=9){
         ChoisirCouleurDessin(CouleurParComposante(0, 0, 0));
