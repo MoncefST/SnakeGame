@@ -39,7 +39,7 @@ void lancer_jeu1(void) {
     initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
-    id_pomme=ChargerSprite("../img/pomme1.png");
+    id_pomme=ChargerSprite("img/pomme1.png");
 
     pomme = creerPomme();
     dessinerPomme(pomme,id_pomme);
@@ -97,7 +97,7 @@ void lancer_jeu2(void) {
     initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
-    id_pomme=ChargerSprite("../img/pomme1.png");
+    id_pomme=ChargerSprite("img/pomme1.png");
 
     for (i = 0; i < 5; i++) {
         pommes[i] = creerPomme();
@@ -160,7 +160,7 @@ void lancer_jeu4(void) {
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
     
-    id_pomme=ChargerSprite("../img/pomme1.png");
+    id_pomme=ChargerSprite("img/pomme1.png");
     pomme = creerPomme();
     dessinerPomme(pomme,id_pomme);
 
@@ -219,7 +219,7 @@ void lancer_jeu3(void) {
     initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
-    id_pomme=ChargerSprite("../img/pomme1.png");
+    id_pomme=ChargerSprite("img/pomme1.png");
     for (i = 0; i < 25; i++) {
         pommes[i] = creerPomme();
         dessinerPomme(pommes[i],id_pomme);

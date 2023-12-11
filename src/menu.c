@@ -8,7 +8,7 @@
 
 
 void afficherMenuPrincipal() {
-    ChargerImageFond("../img/menu_principal.png");
+    ChargerImageFond("img/menu_principal.png");
 
     /* Affiche le bouton "Jouer" */
     afficherBouton(67, 850, 367, 950, "Jouer", CouleurParComposante(0,151,178), CouleurParNom("black"), CouleurParNom("black"), 2);
@@ -19,12 +19,12 @@ void afficherMenuPrincipal() {
 
 void afficherMenuModesDeJeu() {
     /* Affiche l'image de fond des modes de jeu */
-    ChargerImageFond("../img/modes_de_jeu.png");
+    ChargerImageFond("img/modes_de_jeu.png");
 
     /* Affiche les boutons des modes de jeu */
     afficherBouton(38.7, 639.9, 280.3, 742.9, "Classique", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
     afficherBouton(332.6, 639.9, 574.2, 742.9, "MultiPommes", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
-    afficherBouton(626.2, 639.9, 867.8, 742.9, "Partie Rapide", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
+    afficherBouton(626.2, 639.9, 867.8, 742.9, "Glouton", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
     afficherBouton(919.7, 639.9, 1161.3, 742.9, "Acceleration", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
 }
 
@@ -34,7 +34,7 @@ void afficherMenuModesDeJeu() {
 
 void afficherMenuGameOver(void) {
     /* Affiche l'image game over */
-    ChargerImageFond("../img/game_over.png");
+    ChargerImageFond("img/game_over.png");
 }
 
 
