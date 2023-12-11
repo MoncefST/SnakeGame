@@ -74,9 +74,10 @@ void update_timer(int *min, int *sec) {
 }
 
 void pause(void) {
-    while (1) {
+    int pause=0;
+    while (pause==0) {
         if (ToucheEnAttente() && Touche() == XK_space) {
-            break;
+            pause=1;
         }
     }
 }

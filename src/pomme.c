@@ -15,10 +15,8 @@ Pomme creerPomme() {
     return pomme;
 }
 
-void dessinerPomme(Pomme pomme) {
+void dessinerPomme(Pomme pomme,int id_pomme) {
     /* Affichez une pomme*/
-    int id_pomme;
-    id_pomme = ChargerSprite("../img/pomme1.png");
     AfficherSprite(id_pomme,pomme.x * TAILLE_CASE, pomme.y * TAILLE_CASE);
 }
 

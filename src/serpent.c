@@ -37,9 +37,6 @@ void gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y) 
         } else if (touche == XK_Right && *direction_x == 0) {
             *direction_x = 1;
             *direction_y = 0;
-        } else if (touche == XK_Escape) {
-            FermerGraphique();
-            main();
         } else if (touche == XK_space) {
             pause();
         }

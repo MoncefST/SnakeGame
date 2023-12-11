@@ -7,7 +7,6 @@
 #include "../include/jeu.h"
 #include "../include/menu.h"
 #include "../include/timer.h"
-#include "../include/obstacle.h"
 
 
 void afficherScore(int score) {
@@ -33,14 +32,16 @@ void lancer_jeu1(void) {
     char scoreStr[20];
     Pomme pomme;
     int min, sec;
+    int id_pomme;
 
 
     initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
+    id_pomme=ChargerSprite("../img/pomme1.png");
 
     pomme = creerPomme();
-    dessinerPomme(pomme);
+    dessinerPomme(pomme,id_pomme);
 
     while (fin == 1) {
         update_timer(&min, &sec);
@@ -51,7 +52,7 @@ void lancer_jeu1(void) {
             longueur++;
             score += 5;
             pomme = creerPomme();
-            dessinerPomme(pomme);
+            dessinerPomme(pomme,id_pomme);
         }
 
         if (tuerSerpent(serpent, longueur)) {
@@ -85,15 +86,17 @@ void lancer_jeu2(void) {
     char scoreStr[20];
     Pomme pommes[5];
     int min, sec;
+    int id_pomme;
 
 
     initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
+    id_pomme=ChargerSprite("../img/pomme1.png");
 
     for (i = 0; i < 5; i++) {
         pommes[i] = creerPomme();
-        dessinerPomme(pommes[i]);
+        dessinerPomme(pommes[i],id_pomme);
     }
 
     while (1) {
@@ -105,7 +108,7 @@ void lancer_jeu2(void) {
                 longueur++;
                 score += 5;
                 pommes[i] = creerPomme();
-                dessinerPomme(pommes[i]);
+                dessinerPomme(pommes[i],id_pomme);
             }
         }
 
@@ -141,14 +144,16 @@ void lancer_jeu4(void) {
     Pomme pomme;
     Segment serpent[100];
     int min, sec;
+    int id_pomme;
 
 
     initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
-
+    
+    id_pomme=ChargerSprite("../img/pomme1.png");
     pomme = creerPomme();
-    dessinerPomme(pomme);
+    dessinerPomme(pomme,id_pomme);
 
     while (1) {
         gestionDeplacements(serpent, &direction_x, &direction_y);
@@ -158,7 +163,7 @@ void lancer_jeu4(void) {
             longueur++;
             score += 5;
             pomme = creerPomme();
-            dessinerPomme(pomme);
+            dessinerPomme(pomme,id_pomme);
 
             /* Augmenter la vitesse à chaque pomme mangée*/
             vitesse -= 5000;  /* Réduire la durée d'attente (augmenter la vitesse)*/
@@ -185,67 +190,63 @@ void lancer_jeu4(void) {
 }
 
 void lancer_jeu3(void) {
-    int i,j;
+    int i;
+    Segment serpent[100];
     int longueur = 10;
     int direction_x = 1;
     int direction_y = 0;
+    unsigned long int vitesse = 90000;  /*vitesse de base*/
     int score = 0;
-    unsigned long int vitesse = 100000;  
     char scoreStr[20];
-    Pomme pomme;
-    int nombreObstacles = 10;
-    Obstacle *obstacles = malloc(nombreObstacles * sizeof(Obstacle));
-    Segment serpent[100];
+    Pomme pommes[25];
     int min, sec;
+    int id_pomme;
+
 
     initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
-
-    pomme = creerPomme();
-    dessinerPomme(pomme);
-
-    placerObstacle(obstacles, nombreObstacles, LARGEUR_GRILLE, HAUTEUR_GRILLE);
+    id_pomme=ChargerSprite("../img/pomme1.png");
+    for (i = 0; i < 25; i++) {
+        pommes[i] = creerPomme();
+        dessinerPomme(pommes[i],id_pomme);
+    }
 
     while (1) {
-    gestionDeplacements(serpent, &direction_x, &direction_y);
-    mettreAJourSerpent(serpent, &longueur, &direction_x, &direction_y);
+        gestionDeplacements(serpent, &direction_x, &direction_y);
+        mettreAJourSerpent(serpent, &longueur, &direction_x, &direction_y);
 
-    if (serpent[0].x == pomme.x && serpent[0].y == pomme.y) {
-        longueur++;
-        score += 5;
-        pomme = creerPomme();
-        dessinerPomme(pomme);
+        for (i = 0; i < 25; i++) {
+            if (serpent[0].x == pommes[i].x && serpent[0].y == pommes[i].y) {
+                longueur++;
+                score += 5;
+                vitesse -=2500;
+                pommes[i] = creerPomme();
+                dessinerPomme(pommes[i],id_pomme);
+            }
+        }
 
-        
-        vitesse -= 5000;
-    }
+        if (tuerSerpent(serpent, longueur)) {
+            int choixGameOver;
+            afficherMenuGameOver();
+            afficher_seconde(sec);
+            afficher_minute(min);
+            afficherScore(score);
 
-    if (tuerSerpent(serpent, longueur)) {
-        int choixGameOver;
-        afficherMenuGameOver();
-        afficher_seconde(sec);
-        afficher_minute(min);
+            /* Attend le choix du joueur après le game over */
+            attendreChoixGameOver();
+            return;
+        }
+
+        dessinerSerpent(serpent, &longueur);
+
         afficherScore(score);
-        /* Attend le choix du joueur après le game over */
-        attendreChoixGameOver();
-        return;
+        update_timer(&min, &sec);
+
+        attendreSerpent(vitesse); /*Gère la vitesse*/
+
+        /*if (ToucheEnAttente() && Touche() == XK_Escape) {
+            return;
+        }*/
     }
-
-
-    /*Dessiner le serpent et les obstacles*/
-    dessinerSerpent(serpent, &longueur);
-    for (j = 0; j < nombreObstacles; j++) {
-        dessinerObstacle(obstacles[j]);
-    }
-
-    afficherScore(score);
-    update_timer(&min, &sec);
-
-
-    /*Attendre en fonction de la vitesse actuelle*/
-    attendreSerpent(vitesse);
-    
-}
-free(obstacles);
 }
