@@ -1,38 +1,37 @@
-Snake : main.o jeu.o grille.o menu.o pomme.o serpent.o timer.o
-	gcc -lgraph -o Snake main.o jeu.o grille.o menu.o pomme.o serpent.o timer.o
+### VARIABLES ###
 
-main.o : ./src/main.c ./include/main.h ./include/menu.h ./include/jeu.h
+CC = gcc
+CFLAGS = -lgraph -ansi
+SRCDIR = ./src
+HDIR = ./include
+ODIR = ./out
+OFILES = $(subst src/,out/,$(subst .c,.o,$(shell find $(SRCDIR)/ -type f)))
+EXE = game
 
-	gcc -ansi -pedantic -c ./src/main.c
+### BUT PAR DEFAUT ###
 
-jeu.o : ./src/jeu.c ./include/grille.h ./include/serpent.h ./include/pomme.h ./include/jeu.h ./include/menu.h ./include/timer.h
+but : $(EXE)
 
-	gcc -ansi -pedantic -c ./src/jeu.c
+### REGLES ESSENTIELLES ###
 
-grille.o : ./src/grille.c ./include/grille.h
+$(ODIR)/%.o : $(SRCDIR)/%.c
+	@mkdir -p $(@D)
+	$(CC) -c $< -o $@
 
-	gcc -ansi -pedantic -c ./src/grille.c
+$(EXE) : $(OFILES)
+	$(CC) $(CFLAGS) -o $(EXE) $(OFILES)
 
-menu.o : ./src/menu.c ./include/menu.h ./include/main.h
+### REGLES OPTIONNELLES ###
 
-	gcc -ansi -pedantic -c ./src/menu.c
+run : $(EXE)
+	./$(EXE)
 
-pomme.o : ./src/pomme.c ./include/grille.h ./include/serpent.h
+clean :
+	-rm -rf $(ODIR)
 
-	gcc -ansi -pedantic -c ./src/pomme.c
+mrproper :
+	clean $(but)
 
-serpent.o : ./src/serpent.c ./include/serpent.h ./include/main.h ./include/timer.h
+### BUTS FACTICES ###
 
-	gcc -ansi -pedantic -c ./src/serpent.c
-
-timer.o : ./src/timer.c ./include/timer.h
-
-	gcc -ansi -pedantic -c ./src/timer.c
-
-clean : 
-	-rm -f main.o jeu.o grille.o menu.o pomme.o serpent.o timer.o
-
-run :
-	./Snake
-
-.phony : clean
+.PHONY : but run clean mrproper
