@@ -8,17 +8,17 @@
 
 
 
-void menus(void) {
+int menus(void) {
     int choixMenuPrincipal = 0;
     int choixModesDeJeu = 0;
-    while (1) {
-        if (choixMenuPrincipal == 0) {
-            afficherMenuPrincipal();
-            choixMenuPrincipal = attendreChoixMenu();
-        } else if (choixMenuPrincipal == 1) {
-            afficherMenuModesDeJeu();
-            choixModesDeJeu = attendreChoixModesDeJeu();
-            if(choixModesDeJeu == 1){
+    if (choixMenuPrincipal == 0) {
+        afficherMenuPrincipal();
+        choixMenuPrincipal = attendreChoixMenu();
+    } 
+    if (choixMenuPrincipal == 1) {
+        afficherMenuModesDeJeu();
+        choixModesDeJeu = attendreChoixModesDeJeu();
+        if(choixModesDeJeu == 1){
                 EffacerEcran(CouleurParNom("white"));
                 lancer_jeu1();
             }
@@ -34,22 +34,25 @@ void menus(void) {
                 EffacerEcran(CouleurParNom("white"));
                 lancer_jeu4();
             }
-        } else if (choixMenuPrincipal == 2) {
-            FermerGraphique();
         }
+    if (choixMenuPrincipal == 2) {
+        return 1;
     }
-    return;
+    
+    return 0;
 }
 
 
 int main(void){
     int choixMenuPrincipal = 0;
     int choixModesDeJeu = 0;
+    int quitter=0;
     InitialiserGraphique();
     CreerFenetre(0, 0, 1200, 1000);
     ChoisirTitreFenetre("Snake By Moncef & Marco");
-
-    menus();
+    while(quitter==0){
+        quitter=menus();
+    }
+    FermerGraphique();
     return EXIT_SUCCESS;
-
 }

@@ -5,7 +5,7 @@ void afficherBouton(double x1, double y1, double x2, double y2, const char *text
 void afficherMenuPrincipal(void);
 void afficherMenuModesDeJeu(void);
 void afficherMenuGameOver(void);
-int attendreChoixGameOver(void);
+void attendreChoixGameOver(void);
 int attendreChoixModesDeJeu(void);
 int attendreChoixMenu(void);
 
