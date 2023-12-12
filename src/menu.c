@@ -23,9 +23,9 @@ void afficherMenuModesDeJeu() {
 
     /* Affiche les boutons des modes de jeu */
     afficherBouton(38.7, 639.9, 280.3, 742.9, "Classique", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
-    afficherBouton(332.6, 639.9, 574.2, 742.9, "MultiPommes", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
-    afficherBouton(626.2, 639.9, 867.8, 742.9, "Glouton", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
-    afficherBouton(919.7, 639.9, 1161.3, 742.9, "Acceleration", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
+    afficherBouton(332.6, 639.9, 574.2, 742.9, "2 Pommes", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
+    afficherBouton(626.2, 639.9, 867.8, 742.9, "MultiPommes", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
+    afficherBouton(919.7, 639.9, 1161.3, 742.9, "Glouton", CouleurParComposante(168, 116, 67), CouleurParNom("black"), CouleurParNom("black"), 2);
 }
 
 
