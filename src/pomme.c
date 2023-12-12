@@ -10,8 +10,8 @@ typedef struct {
 
 Pomme creerPomme() {
     Pomme pomme;
-    pomme.x = rand() % 59;
-    pomme.y = rand() % 39;
+    pomme.x = rand() % 60;
+    pomme.y = rand() % 40;
     return pomme;
 }
 

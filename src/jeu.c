@@ -147,7 +147,7 @@ void lancer_jeu4(void) {
     int direction_x = 1;
     int direction_y = 0;
     int score = 0;
-    unsigned long int vitesse = 300000;  /*vitesse de base*/
+    unsigned long int vitesse = 100000;  /*vitesse de base*/
     char scoreStr[20];
     Pomme pomme;
     Segment serpent[100];
@@ -178,7 +178,9 @@ void lancer_jeu4(void) {
             dessinerPomme(pomme,id_pomme);
 
             /* Augmenter la vitesse à chaque pomme mangée*/
-            vitesse -= 5000;  /* Réduire la durée d'attente (augmenter la vitesse)*/
+            if(vitesse >=15000){
+                    vitesse -=40; /* Réduire la durée d'attente (augmenter la vitesse)*/
+            }
         }
 
         if (tuerSerpent(serpent, longueur)) {
@@ -236,7 +238,9 @@ void lancer_jeu3(void) {
             if (serpent[0].x == pommes[i].x && serpent[0].y == pommes[i].y) {
                 longueur++;
                 score += 5;
-                vitesse -=2500;
+                if(vitesse >=15000){
+                    vitesse -=40;
+                }
                 pommes[i] = creerPomme();
                 dessinerPomme(pommes[i],id_pomme);
             }
