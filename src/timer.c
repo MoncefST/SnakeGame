@@ -16,7 +16,7 @@ int afficher_seconde(int sec){
     if(sec<=9){
         ChoisirCouleurDessin(CouleurParComposante(0, 0, 0));
         RemplirRectangle(x-3,y-25,40,30);
-        ChoisirCouleurDessin(CouleurParComposante(255, 255, 255));
+        ChoisirCouleurDessin(CouleurParComposante(255, 255, 0));
         EcrireTexte(x,y,"0",2);
         snprintf(timer,sizeof(timer),"%d",sec);
         EcrireTexte(x+15,y,timer,2);
