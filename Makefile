@@ -30,7 +30,7 @@ clean :
 	-rm -rf $(ODIR)
 
 mrproper :
-	clean $(but)
+	clean but
 
 ### BUTS FACTICES ###
 

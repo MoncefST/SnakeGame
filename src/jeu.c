@@ -8,7 +8,26 @@
 #include "../include/menu.h"
 #include "../include/timer.h"
 
-void jouer(int nbPommes, unsigned long int vitesse) {
+
+
+void afficherScore(int score) {
+    char scoreStr[20];
+    /* Efface l'ancien score */
+    ChoisirCouleurDessin(CouleurParComposante(0, 0, 0));
+    RemplirRectangle(178, 946, 130, 40);
+    /* Convertit le score en chaîne de caractères */
+    snprintf(scoreStr, sizeof(scoreStr), "%d", score);
+    /* Affiche le nouveau score */
+    ChoisirCouleurDessin(CouleurParComposante(255, 255, 255));
+    EcrireTexte(179, 976, scoreStr, 2);
+}
+
+
+int mangerPomme(Segment serpent[], Pomme pomme) {
+    return serpent[0].x == pomme.x && serpent[0].y == pomme.y;
+}
+
+void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {
     int i;
     Segment serpent[2400];
     int longueur = 10;
@@ -67,22 +86,23 @@ void jouer(int nbPommes, unsigned long int vitesse) {
         afficherScore(score);
         update_timer(&min, &sec);
 
-        attendreSerpent(vitesse); /*Gère la vitesse*/
+        attendreSerpent(vitesse); /* Gère la vitesse */
     }
 }
 
+
 void lancer_jeu1(void) {
-    jouer(1, 100000);
+    jouer(1, 100000,0);
 }
 
 void lancer_jeu2(void) {
-    jouer(2, 100000);
+    jouer(5, 100000,0);
 }
 
 void lancer_jeu3(void) {
-    jouer(10, 90000);
+    jouer(25, 100000,1);
 }
 
 void lancer_jeu4(void) {
-    jouer(25, 100000);
+    jouer(1, 100000,1);
 }
