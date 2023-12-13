@@ -6,7 +6,7 @@ SRCDIR = ./src
 HDIR = ./include
 ODIR = ./out
 OFILES = $(subst src/,out/,$(subst .c,.o,$(shell find $(SRCDIR)/ -type f)))
-EXE = game
+EXE = snake
 
 ### BUT PAR DEFAUT ###
 
@@ -30,7 +30,7 @@ clean :
 	-rm -rf $(ODIR)
 
 mrproper :
-	clean but
+	rm -rf snake
 
 ### BUTS FACTICES ###
 

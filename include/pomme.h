@@ -9,8 +9,7 @@ typedef struct {
     int y;
 } Pomme;
 
-Pomme creerPomme();
+Pomme creerPomme(Serpent serpent, int longueur);
 void dessinerPomme(Pomme pomme,int id_pomme);
-int verifierCollisionPommeSerpent(Pomme pomme, Segment serpent[], int longueur);
 
 #endif /*POMME_H*/

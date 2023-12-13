@@ -46,7 +46,7 @@ void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {
     id_pomme = ChargerSprite("img/pomme1.png");
 
     for (i = 0; i < nbPommes; i++) {
-        pommes[i] = creerPomme();
+        pommes[i] = creerPomme(serpent,longueur);
         dessinerPomme(pommes[i], id_pomme);
     }
 
@@ -64,7 +64,7 @@ void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {
                 if (vitesse >= 15000) {
                     vitesse -= 40;
                 }
-                pommes[i] = creerPomme();
+                pommes[i] = creerPomme(serpent,longueur);
                 dessinerPomme(pommes[i], id_pomme);
             }
         }

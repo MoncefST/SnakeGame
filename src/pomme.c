@@ -4,26 +4,27 @@
 #include "../include/serpent.h"
 #include "../include/pomme.h"
 
+int estSurSerpent(Pomme pomme, Serpent serpent, int longueur) {
+    int i;
+    for (i = 0; i < longueur; ++i) {
+        if (pomme.x == serpent[i].x && pomme.y == serpent[i].y) {
+            return 1;  /*La pomme est sur le serpent*/
+        }
+    }
+    return 0;  /*La pomme n'est pas sur le serpent*/
+}
 
-Pomme creerPomme() {
+Pomme creerPomme(Serpent serpent, int longueur) {
     Pomme pomme;
-    pomme.x = rand() % 60;
-    pomme.y = rand() % 40;
+    do {
+        pomme.x = rand() % LARGEUR_GRILLE;
+        pomme.y = rand() % HAUTEUR_GRILLE;
+    } while (estSurSerpent(pomme, serpent, longueur));
     return pomme;
 }
+
 
 void dessinerPomme(Pomme pomme, int id_pomme) {
     /* Affichez une pomme */
     AfficherSprite(id_pomme, pomme.x * TAILLE_CASE, pomme.y * TAILLE_CASE);
-}
-
-int verifierCollisionPommeSerpent(Pomme pomme, Segment serpent[], int longueur) {
-    int i;
-    /* Vérifie si la pomme est sur une case occupée par le serpent */
-    for (i = 0; i < longueur; ++i) {
-        if (pomme.x == serpent[i].x && pomme.y == serpent[i].y) {
-            return 1; /* Collision */
-        }
-    }
-    return 0; /* Pas de collision */
 }
