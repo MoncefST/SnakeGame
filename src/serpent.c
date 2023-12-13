@@ -8,7 +8,7 @@
 #define HAUTEUR_GRILLE 40
 
 
-void initialiserSerpent(Segment serpent[], int *longueur) {
+void initialiserSerpent(Serpent serpent, int *longueur) {
     int i;
     int centreX = LARGEUR_GRILLE / 2;
     int centreY = HAUTEUR_GRILLE / 2;
@@ -21,7 +21,7 @@ void initialiserSerpent(Segment serpent[], int *longueur) {
     *longueur = 10;
 }
 
-int gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y) {
+int gestionDeplacements(Serpent serpent, int *direction_x, int *direction_y) {
     int touche;
     if (ToucheEnAttente()) {
         touche = Touche();
@@ -46,7 +46,7 @@ int gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y) {
     return 0;
 }
 
-int tuerSerpent(Segment serpent[], int longueur) {
+int tuerSerpent(Serpent serpent, int longueur) {
     int i;
     /*Vérifier si la tête du serpent est sortie de la grille après le déplacement*/
     if (serpent[0].x < 0 || serpent[0].x >= LARGEUR_GRILLE || serpent[0].y < 0 || serpent[0].y >= HAUTEUR_GRILLE) {
@@ -65,7 +65,7 @@ int tuerSerpent(Segment serpent[], int longueur) {
 
 
 
-void mettreAJourSerpent(Segment serpent[], int *longueur, int *direction_x, int *direction_y) {
+void mettreAJourSerpent(Serpent serpent, int *longueur, int *direction_x, int *direction_y) {
     int i;
     int ancienX = serpent[*longueur - 1].x;
     int ancienY = serpent[*longueur - 1].y;
@@ -91,7 +91,7 @@ void mettreAJourSerpent(Segment serpent[], int *longueur, int *direction_x, int 
 }
 
 
-void dessinerSerpent(Segment serpent[], int *longueur) {
+void dessinerSerpent(Serpent serpent, int *longueur) {
     int i;
     for (i = 0; i < *longueur; ++i) {
         ChoisirCouleurDessin(CouleurParNom("yellow"));

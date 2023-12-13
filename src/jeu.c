@@ -23,13 +23,13 @@ void afficherScore(int score) {
 }
 
 
-int mangerPomme(Segment serpent[], Pomme pomme) {
-    return serpent[0].x == pomme.x && serpent[0].y == pomme.y;
+int mangerPomme(Serpent serpent[], Pomme pomme) {
+    return serpent[0]->x == pomme.x && serpent[0]->y == pomme.y;
 }
 
 void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {
     int i;
-    Segment serpent[2400];
+    Serpent serpent=(Serpent) malloc(2400*sizeof(int));
     int longueur = 10;
     int direction_x = 1;
     int direction_y = 0;
@@ -59,7 +59,7 @@ void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {
 
         for (i = 0; i < nbPommes; i++) {
             if (serpent[0].x == pommes[i].x && serpent[0].y == pommes[i].y) {
-                longueur += 2;
+                longueur += 1000;
                 score += 5;
                 if (vitesse >= 15000) {
                     vitesse -= 40;
@@ -78,6 +78,7 @@ void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {
 
             /* Attend le choix du joueur après le game over */
             attendreChoixGameOver();
+            free(serpent);
             return;
         }
 

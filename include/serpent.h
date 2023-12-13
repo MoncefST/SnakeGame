@@ -4,12 +4,13 @@
 typedef struct {
     int x, y;
 } Segment;
+typedef Segment* Serpent;
 
-void initialiserSerpent(Segment serpent[], int *longueur);
-int gestionDeplacements(Segment serpent[], int *direction_x, int *direction_y);
-int tuerSerpent(Segment serpent[], int longueur);
-void mettreAJourSerpent(Segment serpent[], int *longueur, int *direction_x, int *direction_y);
-void dessinerSerpent(Segment serpent[], int *longueur);
+void initialiserSerpent(Serpent serpent, int *longueur);
+int gestionDeplacements(Serpent serpent, int *direction_x, int *direction_y);
+int tuerSerpent(Serpent serpent, int longueur);
+void mettreAJourSerpent(Serpent serpent, int *longueur, int *direction_x, int *direction_y);
+void dessinerSerpent(Serpent serpent, int *longueur);
 void attendreSerpent(unsigned long int microseconds);
 
 #endif /*SERPENT_H*/
