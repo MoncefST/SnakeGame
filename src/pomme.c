@@ -4,21 +4,11 @@
 #include "../include/serpent.h"
 #include "../include/pomme.h"
 
-Pomme creerPomme(Segment serpent[], int longueur) {
+
+Pomme creerPomme() {
     Pomme pomme;
-    int i;
-    int serpentOccupation[LARGEUR_GRILLE][HAUTEUR_GRILLE] = {0};  /*Utiliser les constantes de grille.h*/
-
-    /*Marquer les cases occupées par le serpent*/
-    for (i = 0; i < longueur; ++i) {
-        serpentOccupation[serpent[i].x][serpent[i].y] = 1;
-    }
-
-    do {
-        pomme.x = rand() % LARGEUR_GRILLE;
-        pomme.y = rand() % HAUTEUR_GRILLE;
-    } while (serpentOccupation[pomme.x][pomme.y]);
-
+    pomme.x = rand() % 60;
+    pomme.y = rand() % 40;
     return pomme;
 }
 
