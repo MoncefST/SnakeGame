@@ -2,6 +2,25 @@
 
 Cette version du jeu [Snake](https://fr.wikipedia.org/wiki/Serpentes) a été réalisée dans le cadre du [SAÉ1.01 "Implémentation d'un besoin client"](http://www.iut-fbleau.fr/sitebp/pt11/11_2023/UWO9O2WOJ7JETN3P.php) lors du premier semestre de BUT 1 à l'IUT de Fontainebleau.
 
+
+## Table des matières
+- [Lancement du programme](#lancement-du-programme)
+  - [Compilation](#compilation)
+  - [Méthode n°1 (recommandée)](#méthode-n°1-recommandée--compiler-et-lancer-le-programme-avec-make)
+  - [Méthode n°2](#méthode-n°2--compiler-puis-lancer-le-programme)
+- [Comment jouer ?](#comment-jouer)
+  - [Les touches](#les-touches)
+- [Fonctionnalités](#fonctionnalités)
+  - [Fonctionnalités exigées](#fonctionnalités-exigées)
+  - [Fonctionnalités additionnelles](#fonctionnalités-additionnelles)
+- [Suppression des fichiers](#suppression-des-fichiers)
+  - [Fichiers objets](#fichiers-objets)
+  - [Executable](#executable)
+- [Dépendances](#dépendances)
+  - [Bibliothèque graphique de l'IUT de Fontainebleau](#bibliothèque-graphique-de-liut-de-fontainebleau)
+- [Crédits](#crédits)
+- [Remerciements](#remerciements)
+
 ## Lancement du programme
 ### Compilation
 > Installer au préalable les [dépendances nécessaires](#dépendances) au fonctionnement du programme
@@ -19,7 +38,7 @@ make run
 #### Méthode n°2 : Compiler puis lancer le programme
 Une fois la [compilation du programme](#compilation) faite, exécuter le programme à l'aide de la commande suivante :
 ```bash
-./game
+./snake
 ```
 
 
@@ -49,7 +68,18 @@ Une fois la [compilation du programme](#compilation) faite, exécuter le program
 #### Menues uniques
 Nous avons ajouter des menues afin de faciliter l'expérience utilisateur ! 
 
+## Suppression des fichiers
+#### Fichiers objets
+Utiliser la commande suivante pour supprimer les fichiers objets :
+```bash
+make clean
+```
 
+#### Executable
+Utiliser la commande suivante pour l'executable :
+```bash
+make mrproper
+```
 
 ## Dépendances
 ### Bibliothèque graphique de l'IUT de Fontainebleau
