@@ -59,7 +59,7 @@ void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {
 
         for (i = 0; i < nbPommes; i++) {
             if (serpent[0].x == pommes[i].x && serpent[0].y == pommes[i].y) {
-                longueur += 1000;
+                longueur += 2;
                 score += 5;
                 if (vitesse >= 15000) {
                     vitesse -= 40;
