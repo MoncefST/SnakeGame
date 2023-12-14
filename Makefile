@@ -1,7 +1,7 @@
 ### VARIABLES ###
 
 CC = gcc
-CFLAGS = -lgraph -ansi
+CFLAGS = -lgraph -ansi -pedantic
 SRCDIR = ./src
 HDIR = ./include
 ODIR = ./out
