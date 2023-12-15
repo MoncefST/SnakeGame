@@ -20,7 +20,7 @@ void initialiserSerpent(Serpent serpent, int *longueur) {
     *longueur = 10;
 }
 
-int gestionDeplacements(Serpent serpent, int *direction_x, int *direction_y) {
+int gestionTouches(Serpent serpent, int *direction_x, int *direction_y) {
     int touche;
     if (ToucheEnAttente()) {
         touche = Touche();

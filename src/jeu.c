@@ -53,7 +53,7 @@ void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {      /*fa
     }
 
     while (1) {
-        esc = gestionDeplacements(serpent, &direction_x, &direction_y);
+        esc = gestionTouches(serpent, &direction_x, &direction_y);
         if (esc == 1) {
             return;
         }
