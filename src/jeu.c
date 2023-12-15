@@ -27,7 +27,7 @@ int mangerPomme(Serpent serpent[], Pomme pomme) {
     return serpent[0]->x == pomme.x && serpent[0]->y == pomme.y;
 }
 
-void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {
+void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {      /*fait marcher le jeu avec, en paramètre, le nombre de pommes, la vitesse e si le serpent accèlere ou non*/
     int i;
     Serpent serpent=(Serpent) malloc(2400*sizeof(int));
     int longueur = 10;
@@ -63,8 +63,8 @@ void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {
             if (serpent[0].x == pommes[i].x && serpent[0].y == pommes[i].y) {
                 longueur += 2;
                 score += 5;
-                if (vitesse >= 15000) {
-                    vitesse -= 40;
+                if (vitesse >=60000) {      /*la vitesse maximal s'atteint au bout après 100 pommes consommées*/
+                    vitesse -= 400;
                 }
                 pommes[i] = creerPomme(serpent,longueur);
                 dessinerPomme(pommes[i], id_pomme);
