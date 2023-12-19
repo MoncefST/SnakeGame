@@ -38,14 +38,12 @@ void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {      /*fa
     Pomme pommes[25];
     int min, sec;
     int id_pomme;
-    int id_tete;
     int esc = 0;
 
     initialiser_timer(&min, &sec);
     initialiserSerpent(serpent, &longueur);
     dessinerGrille();
     id_pomme = ChargerSprite("img/pomme1.png");
-    id_tete = ChargerSprite("img/tete.png");
 
     for (i = 0; i < nbPommes; i++) {
         pommes[i] = creerPomme(serpent,longueur);
@@ -84,7 +82,7 @@ void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {      /*fa
             return;
         }
 
-        dessinerSerpent(serpent, &longueur,id_tete);
+        dessinerSerpent(serpent, &longueur);
 
         afficherScore(score);
         update_timer(&min, &sec);

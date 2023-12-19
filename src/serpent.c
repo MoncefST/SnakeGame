@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <graph.h>
 #include "../include/serpent.h"
-#include "../include/main.h"
 #include "../include/timer.h"
 #define TAILLE_CASE 20
 #define LARGEUR_GRILLE 60
@@ -89,43 +88,15 @@ void mettreAJourSerpent(Serpent serpent, int *longueur, int *direction_x, int *d
     tuerSerpent(serpent, *longueur); /*Appeler la fonction pour vérifier si le serpent est mort*/
 }
 
-
-/*void dessinerSerpent(Serpent serpent, int *longueur,int id_tete) {
+void dessinerSerpent(Serpent serpent, int *longueur) {
     int i;
-    AfficherSprite(id_tete,serpent[0].x * TAILLE_CASE,serpent[0].y * TAILLE_CASE);                
-    for (i = 1; i < *longueur; ++i) {
-        AfficherSprite(id_tete,serpent[0].x * TAILLE_CASE,serpent[0].y * TAILLE_CASE);
-    }
-}*/
-
-/*void dessinerSerpent(Serpent serpent, int *longueur,int id_tete) {
-    int i;
-    ChoisirCouleurDessin(CouleurParNom("yellow"));
-    RemplirRectangle(serpent[0].x * TAILLE_CASE, serpent[0].y * TAILLE_CASE, TAILLE_CASE, TAILLE_CASE);      
-    AfficherSprite(id_tete,serpent[0].x * TAILLE_CASE,serpent[0].y * TAILLE_CASE);
-    for (i = 1; i < *longueur; ++i) {
-        ChoisirCouleurDessin(CouleurParNom("yellow"));
-        RemplirRectangle(serpent[i].x * TAILLE_CASE, serpent[i].y * TAILLE_CASE, TAILLE_CASE, TAILLE_CASE);
-    }
-}*/
-
-/*void dessinerSerpent(Serpent serpent, int *longueur,int id_tete) {
-    int i;
-    ChoisirCouleurDessin(CouleurParNom("yellow"));
-    RemplirRectangle(serpent[0].x * TAILLE_CASE, serpent[0].y * TAILLE_CASE, TAILLE_CASE, TAILLE_CASE);
-    for (i = 1; i < *longueur; ++i) {
-        ChoisirCouleurDessin(CouleurParNom("yellow"));
-        RemplirRectangle(serpent[i].x * TAILLE_CASE, serpent[i].y * TAILLE_CASE, TAILLE_CASE, TAILLE_CASE);      
-        AfficherSprite(id_tete,serpent[i].x * TAILLE_CASE,serpent[i].y * TAILLE_CASE);
-    }
-}*/
-
-void dessinerSerpent(Serpent serpent, int *longueur,int id_tete) {
-    int i;
+    /*Dessine la tête du serpent*/
     ChoisirCouleurDessin(CouleurParNom("yellow"));
     RemplirRectangle(serpent[0].x * TAILLE_CASE, serpent[0].y * TAILLE_CASE, TAILLE_CASE, TAILLE_CASE);
     ChoisirCouleurDessin(CouleurParNom("black"));
     RemplirRectangle(serpent[0].x * TAILLE_CASE, serpent[0].y * TAILLE_CASE, TAILLE_CASE-12, TAILLE_CASE-12);
+    
+    /*Dessine le reste du serpent*/
     for (i = 1; i < *longueur; ++i) {
         ChoisirCouleurDessin(CouleurParNom("yellow"));
         RemplirRectangle(serpent[i].x * TAILLE_CASE, serpent[i].y * TAILLE_CASE, TAILLE_CASE, TAILLE_CASE);
