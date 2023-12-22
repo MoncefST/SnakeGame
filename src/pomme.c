@@ -28,3 +28,7 @@ void dessinerPomme(Pomme pomme, int id_pomme) {
     /* Affichez une pomme */
     AfficherSprite(id_pomme, pomme.x * TAILLE_CASE, pomme.y * TAILLE_CASE);
 }
+
+int mangerPomme(Serpent serpent[], Pomme pomme) {
+    return serpent[0]->x == pomme.x && serpent[0]->y == pomme.y;
+}

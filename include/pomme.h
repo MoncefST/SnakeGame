@@ -11,5 +11,6 @@ typedef struct {
 
 Pomme creerPomme(Serpent serpent, int longueur);
 void dessinerPomme(Pomme pomme,int id_pomme);
+int mangerPomme(Serpent serpent[], Pomme pomme);
 
 #endif /*POMME_H*/

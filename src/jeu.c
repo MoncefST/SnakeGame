@@ -22,11 +22,6 @@ void afficherScore(int score) {
     EcrireTexte(179, 976, scoreStr, 2);
 }
 
-
-int mangerPomme(Serpent serpent[], Pomme pomme) {
-    return serpent[0]->x == pomme.x && serpent[0]->y == pomme.y;
-}
-
 void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {      /*fait marcher le jeu avec, en paramètre, le nombre de pommes, la vitesse e si le serpent accèlere ou non*/
     int i;
     Serpent serpent=(Serpent) malloc(2400*sizeof(int));
