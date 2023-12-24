@@ -1,9 +1,6 @@
 #ifndef POMME_H
 #define POMME_H
 
-#include "../include/grille.h"
-#include "../include/serpent.h"
-
 typedef struct {
     int x;
     int y;
