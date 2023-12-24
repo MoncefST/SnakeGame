@@ -4,10 +4,7 @@
 
 
 void afficherScore(int score);
-void lancer_jeu1(void);
-void lancer_jeu2(void);
-void lancer_jeu3(void);
-void lancer_jeu4(void);
+void jouer(int nbPommes, unsigned long int vitesse,int acceleration);
 
 
 #endif /*JEU_H*/

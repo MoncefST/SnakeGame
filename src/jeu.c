@@ -85,20 +85,3 @@ void jouer(int nbPommes, unsigned long int vitesse,int acceleration) {      /*fa
         attendreSerpent(vitesse); /* Gère la vitesse */
     }
 }
-
-
-void lancer_jeu1(void) {
-    jouer(1, 100000,0);
-}
-
-void lancer_jeu2(void) {
-    jouer(5, 100000,0);
-}
-
-void lancer_jeu3(void) {
-    jouer(25, 100000,1);
-}
-
-void lancer_jeu4(void) {
-    jouer(1, 100000,1);
-}
