@@ -91,3 +91,7 @@ make mrproper
  
  ## Remerciements
  -   Lyanis Souidi pour son explication sur la réalisation d'un readme.md
+
+
+# NOTE OBTENUE : 
+-  17.50/20 
