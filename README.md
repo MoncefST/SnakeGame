@@ -87,11 +87,7 @@ make mrproper
  -   Auteur : Denis Monnerat (@monnerat)
 
 ## Crédits
- -   Programme réalisé par Moncef STITI (@stiti) et Marco ORFAO (@orfao)
- 
- ## Remerciements
- -   Lyanis Souidi pour son explication sur la réalisation d'un readme.md
-
+ -   Programme réalisé par Moncef STITI (@stiti)
 
 # NOTE OBTENUE : 
 -  17.50/20 
